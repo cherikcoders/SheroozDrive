@@ -1,8 +1,8 @@
 #-- Backend
-HELP.md
-target/
-target/*.jar
-!.mvn/wrapper/maven-wrapper.jar
+Backend/HELP.md
+Backend/target/
+Backend/target/*.jar
+Backend/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -16,33 +16,34 @@ target/*.jar
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+Backend/.idea
 *.iws
 *.iml
 *.ipr
 
-mongodb/data
-mongodb/log
+Backend/mongodb/data
+Backend/mongodb/log
 
-error.log
+Backend/error.log
 
 #-- Frontend
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+Frontend/node_modules
+**/node_modules
+**/.pnp
 .pnp.js
 
 # testing
-/coverage
+**/coverage
 
 # next.js
-/.next/
-/out/
+**/.next/
+**/out/
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store
