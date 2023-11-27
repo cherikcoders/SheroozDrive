@@ -38,6 +38,38 @@ services:
       - "5672:5672"
       - "15672:15672"
 
+  zookeeper:
+    container_name: zookeeper
+    image: docker.arvancloud.ir/wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - main-network
+
+  kafka:
+    container_name: kafka
+    image: docker.arvancloud.ir/wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    networks:
+      - main-network
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+
+  redis:
+    container_name: redis
+    image: docker.arvancloud.ir/redis
+    networks:
+      - main-network
+    volumes:
+      - /data:/data
+    ports:
+      - "6379:6379"
+    expose:
+    - 6379
+
   web:
     build:
       context: .
